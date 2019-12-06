@@ -8,23 +8,26 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>NomEvenement</th>
-                <th>UrlImage</th>
+                <th>Nom de l'évènement</th>
+                <th>Image</th>
                 <th>Commentaires</th>
-                <th>actions</th>
+                <th>Que faire</th>
             </tr>
         </thead>
         <tbody>
         {% for image in images %}
             <tr>
-                <td>{{ image.id }}</td>
-                <td>{{ image.nomEvenement }}</td>
+                <td>{{ image.nomEvenement | upper}}</td>
                 <td><img {% if image.urlImage == "" %}src="/uploads/image_gallery/{{ image.imageFilename }}" {% else %} src="{{ image.urlImage }}" {% endif %} alt="{{ image.nomEvenement }}" style="width: 175px; height: 100px"></td>
-                <td>{{ image.commentaires }}</td>
+            {% if image.commentaires == "" %}
+                <td>Rien à signaler</td>
+            {% else %}
+                <td>{{ image.commentaires | capitalize }}</td>
+            {% endif %}
+
                 <td>
-                    <a href="{{ path('images_show', {'id': image.id}) }}">show</a><br>
-                    <a href="{{ path('images_edit', {'id': image.id}) }}">edit</a>
+                    <a href="{{ path('images_show', {'id': image.id}) }}"><button class="btn btn-primary mb-1">Voir</button></a><br>
+                    <a href="{{ path('images_edit', {'id': image.id}) }}"><button class="btn btn-warning mb-1">Editer</button></a>
                     {{ include('images/_delete_form.html.twig') }}
                 </td>
             </tr>
