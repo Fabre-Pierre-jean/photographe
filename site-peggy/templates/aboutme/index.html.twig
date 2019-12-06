@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}A propos de moi{% endblock %}
+
+{% block body %}
+    <h1>Aboutme index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Desciption</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for aboutme in aboutmes %}
+            <tr>
+                <td>{{ aboutme.id }}</td>
+                <td>{{ aboutme.title }}</td>
+                <td>{{ aboutme.desciption }}</td>
+                <td>
+                    <a href="{{ path('aboutme_show', {'id': aboutme.id}) }}">show</a>
+                    <a href="{{ path('aboutme_edit', {'id': aboutme.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('aboutme_new') }}">Create new</a>
+{% endblock %}
