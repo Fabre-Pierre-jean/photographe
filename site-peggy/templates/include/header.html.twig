@@ -1,4 +1,10 @@
-<header class="site-header">
+<div class="container tangerine">
+
+    <h1 class="text-center title" >Peggy Bous</h1>
+    <h3 class="text-center">Moments heureux</h3>
+
+    <hr>
+    <header class="site-header">
     <div class="row align-items-center">
         <div class="col-4 col-sm-4 col-lg-2 order-lg-1">
             <div class="site-branding">
@@ -16,13 +22,26 @@
                 </div><!-- .hamburger-menu -->
 
                 <ul>
-                    <li class="current-menu-item"><a href="{{ path('homepage') }}">Home</a></li>
+                    {% if app.user %}
+                    <li>
+                        <a href="/admin">Administration</a>
+                    </li>
+                    {% endif %}
+                    <li  class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="{{ path('homepage') }}">Accueil</a></li>
 {#                    <li><a href="{{ path('portefolio') }}">Portfolio</a></li>#}
-                    <li><a href="#">About me</a></li>
-                    <li><a href="#">Contact</a></li>
+
+                    <li class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="#">Contact</a></li>
+                    <li class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="#">About me</a></li>
+                    {% if app.user %}
+                        <li>
+                            <a href="/logout">Se déconnecter</a>
+                        </li>
+                    {% else %}
+                        <li><a href="{{ path('app_login') }}">Se connecter</a></li>
+                    {% endif %}
                 </ul>
             </nav><!-- .site-navigation -->
         </div><!-- .col-2 -->
     </div><!-- .row -->
 </header><!-- .site-header -->
-
+</div>

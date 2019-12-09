@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Images;
 use App\Form\ImagesType;
 use App\Repository\ImagesRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
@@ -27,14 +28,14 @@ class ImagesController extends AbstractController
     /**
      * @Route("/admin/new", name="images_new", methods={"GET","POST"})
      */
-    public function new(Request $request)
+    public function new(Request $request, EntityManagerInterface $manager)
     {
         $image = new Images();
         $form = $this->createForm(ImagesType::class, $image);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
+//            $entityManager = $this->getDoctrine()->getManager();
             $imageFile = $form['image']->getData();
 
             // this condition is needed because the 'brochure' field is not required
@@ -58,8 +59,8 @@ class ImagesController extends AbstractController
                 // instead of its contents
                 $image->setImageFilename($newFilename);
             }
-                $entityManager->persist($image);
-                $entityManager->flush();
+                $manager->persist($image);
+                $manager->flush();
 
             return $this->redirect($this->generateUrl('images_index'));
         }
@@ -72,7 +73,7 @@ class ImagesController extends AbstractController
     }
 
     /**
-     * @Route("/admin/{id}", name="images_show", methods={"GET"})
+     * @Route("/admin/show/{id}", name="images_show", methods={"GET"})
      */
     public function show(Images $image): Response
     {
@@ -102,15 +103,14 @@ class ImagesController extends AbstractController
     }
 
     /**
-     * @Route("/admin/{id}", name="images_delete", methods={"DELETE"})
+     * Supprimer une image
+     *
+     * @Route("/admin/{id}/delete", name="images_delete")
      */
-    public function delete(Request $request, Images $image): Response
+    public function deleteAction(Images $images, EntityManagerInterface $manager)
     {
-        if ($this->isCsrfTokenValid('delete'.$image->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($image);
-            $entityManager->flush();
-        }
+        $manager->remove($images);
+        $manager->flush();
 
         return $this->redirectToRoute('images_index');
     }

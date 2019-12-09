@@ -1,5 +1,22 @@
-<form method="post" action="{{ path('images_delete', {'id': image.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ image.id) }}">
-    <button class="btn btn-danger">Supprimer</button>
-</form>
+<!-------------------------------------------------- Button trigger modal --------------------------------------------------------------------------->
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+        Supprimer cette annonce
+    </button>
+
+<!-------------------------------------------------- End Button trigger modal --------------------------------------------------------------------------->
+
+<!-------------------------------------------------- Modal --------------------------------------------------------------------------->
+<div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content bg-bark">
+            <div class="modal-body">
+                Etes vous sûr de vouloir supprimer cette annonce ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>
+                <a href="{{ path('images_delete', {'id': image.id}) }}" class="btn btn-danger">Oui je suis sûr !</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-------------------------------------------------- End Modal --------------------------------------------------------------------------->

@@ -3,16 +3,12 @@
 {% block title %}New Images{% endblock %}
 
 {% block body %}
-    <h1>Nouvelles images pour la gallerie</h1>
+    <div class="container">
+    <h1 class="alert alert-info">Nouvelles images pour la galerie</h1>
 
     {{ include('images/_form.html.twig') }}
 
-    <a href="{{ path('images_index') }}">back to list</a>
+    <a href="{{ path('images_index') }}"><button type="submit" class="btn btn-secondary">back to list</button></a>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            bsCustomFileInput.init()
-        })
-    </script>
 {% endblock %}

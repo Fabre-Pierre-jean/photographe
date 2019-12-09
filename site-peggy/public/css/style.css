@@ -1,6 +1,285 @@
 
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700');
 
+@import url('https://fonts.googleapis.com/css?family=Tangerine&display=swap');
+
+/*--------------------------------------------------------------
+# dont display any scroll bar
+--------------------------------------------------------------*/
+
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
+
+/*--------------------------------------------------------------
+# Login
+--------------------------------------------------------------*/
+.jumbotron{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+/*--------------------------------------------------------------
+# perso
+--------------------------------------------------------------*/
+
+.portfolio-title{
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 100;
+}
+
+/*--------------------------------------------------------------
+# img carousel
+--------------------------------------------------------------*/
+.backcolor ul li a{
+    background-color: rgba(203, 218, 226, 0.22);
+}
+
+.carousel-item img{
+    height: auto;
+    width: auto;
+}
+
+.anime{
+    height: 740px;
+    width: auto;
+    -webkit-transition-duration: 4s;
+    -o-transition-duration: 4s;
+    transition-duration: 4s;
+    -webkit-transition-delay: 0.5ms;
+    -o-transition-delay: 0.5ms;
+    transition-delay: 0.5ms;
+    -webkit-transform: scale(2);
+    -ms-transform: scale(2);
+    transform: scale(2);
+}
+
+.animerev{
+    height: 740px;
+    width: auto;
+    -webkit-transition-duration: 4s;
+    -o-transition-duration: 4s;
+    transition-duration: 4s;
+    -webkit-transition-delay: 0.5ms;
+    -o-transition-delay: 0.5ms;
+    transition-delay: 0.5ms;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+}
+
+
+ul li{
+    background-color: rgba(203, 218, 226, 0.22);
+}
+
+/*--------------------------------------------------------------
+# header title peggy bous
+--------------------------------------------------------------*/
+.choix_gallery:hover{
+    opacity: 1;
+}
+
+.title{
+    font-size: 150px;
+}
+
+h3{
+    font-size: 45px;
+    color: pink;
+    -webkit-transform: translate(110px, -80px);
+    -ms-transform: translate(110px, -80px);
+    transform: translate(110px, -80px);
+    margin-bottom: -50px;
+}
+
+.tangerine{
+    font-family: Tangerine, sans-serif;
+    font-size: 35px;
+}
+
+/*--------------------------------------------------------------
+# Magnific-anime gallery from the left
+--------------------------------------------------------------*/
+.gallery_left{
+    margin-top: 50px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-left: -900px;
+    opacity: 0.01;
+}
+
+.anime_left{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-left: -300px;
+    -webkit-transform: translateX(400px);
+    -ms-transform: translateX(400px);
+    transform: translateX(400px);
+    -webkit-transition-duration: 2s;
+    -o-transition-duration: 2s;
+    transition-duration: 2s;
+    opacity: 1;
+    font-weight: bold;
+}
+
+.anime_left img{
+    border-radius: 50%;
+}
+
+.gallery_text_left{
+    font-weight: lighter;
+    width: 600px;
+    text-align: justify;
+    padding: 10px 10px 0 20px;
+    z-index: 500;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 25px;
+}
+
+.blue, .blue a{
+    background-color: rgba(255, 192, 203, 0.35);
+    opacity: 1;
+    width: 700px;
+    height: 600px;
+    border-radius: 50%;
+}
+
+.blue:hover{
+    opacity: 0.7;
+    width: 700px;
+    height: 600px;
+    border-radius: 50%;
+}
+
+/*--------------------------------------------------------------
+# Magnific-anime gallery from the left
+--------------------------------------------------------------*/
+.gallery_left2{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-left: -900px;
+    opacity: 0.01;
+    margin-top: 100px;
+}
+
+.anime_left2{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-left: -300px;
+    -webkit-transform: translateX(400px);
+    -ms-transform: translateX(400px);
+    transform: translateX(400px);
+    -webkit-transition-duration: 2s;
+    -o-transition-duration: 2s;
+    transition-duration: 2s;
+    opacity: 1;
+    font-weight: bold;
+    margin-top: 100px;
+
+}
+
+.anime_left2 img{
+    border-radius: 50%;
+}
+
+.gallery_text_left2{
+    font-weight: lighter;
+    width: 600px;
+    text-align: justify;
+    padding: 10px 10px 0 20px;
+    z-index: 500;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 25px;
+}
+
+.blue2{
+    background-color: cornflowerblue;
+    opacity: 1;
+    width: 700px;
+    height: 600px;
+    border-radius: 50%;
+}
+.blue2:hover{
+    opacity: 0.7;
+    width: 700px;
+    height: 600px;
+    border-radius: 50%;
+}
+
+
+/*--------------------------------------------------------------
+# Magnific-anime gallery from the right
+--------------------------------------------------------------*/
+
+.gallery_right{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-transform: translateX(2000px);
+    -ms-transform: translateX(2000px);
+    transform: translateX(2000px);
+    opacity: 0.01;
+    margin-top: 100px;
+}
+
+/*.gallery_text_right{*/
+/*    background-color: rgba(193, 193, 193, 0.4555);*/
+/*    margin-right: -50px;*/
+/*    margin-top:80px;*/
+/*    margin-bottom: 100px;*/
+/*    width: 350px;*/
+/*    text-align: justify;*/
+/*    padding: 10px 10px 0 20px;*/
+/*    z-index: 500;*/
+/*}*/
+
+.anime_right{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-left: -400px;
+    transform: translateX(1100px);
+    -webkit-transition-duration: 2s;
+    -o-transition-duration: 2s;
+    transition-duration: 2s;
+    opacity: 1;
+    font-weight: bold;
+    margin-top: 100px;
+}
+
+.anime_right img{
+    border-radius: 50%;
+}
+
+.green{
+    background-color: rgba(0, 255, 0, 0.29);
+    opacity: 1;
+    width: 700px;
+    height: 600px;
+    border-radius: 50%;
+}
+.green:hover{
+    opacity: 0.7;
+    width: 700px;
+    height: 600px;
+    border-radius: 50%;
+}
+
 
 /*--------------------------------------------------------------
 # Magnific-popup
@@ -388,9 +667,15 @@ img.mfp-img {
 }
 
 body {
+    margin-top: 40px;
     background-color: rgba(203, 218, 226, 0.22);
     color: #191919;
     font-family: 'Work Sans', sans-serif;
+    font-size: 18px;
+}
+
+hr{
+    margin-bottom: -15px;
 }
 
 img {
@@ -400,14 +685,6 @@ img {
 /*--------------------------------------------------------------
 # Links
 --------------------------------------------------------------*/
-a {
-    color: royalblue;
-}
-
-a:visited {
-    color: purple;
-}
-
 a:hover, a:focus, a:active {
     color: midnightblue;
 }
@@ -553,39 +830,10 @@ a:hover, a:active {
 
 .site-navigation ul li a:hover,
 .site-navigation ul li.current-menu-item a {
-    color: #30df7a;
-
+    color: pink;
+/*color hover menu*/
 }
 
-.backcolor ul li a{
-    background-color: rgba(203, 218, 226, 0.22);
-}
-
-.carousel-item img{
-    height: 740px;
-    width: auto;
-}
-
-.anime{
-    height: 740px;
-    width: auto;
-    transition-duration: 4s;
-    transition-delay: 0.5ms;
-    transform: scale(2);
-}
-.animerev{
-    height: 740px;
-    width: auto;
-    transition-duration: 4s;
-    transition-delay: 0.5ms;
-    transform: scale(1);
-}
-
-
-ul li{
-    background-color: rgba(203, 218, 226, 0.22);
-
-}
 
 @media screen and (min-width: 992px) {
     .site-navigation ul {

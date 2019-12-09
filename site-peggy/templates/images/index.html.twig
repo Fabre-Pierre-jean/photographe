@@ -1,33 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Images index{% endblock %}
+{% block title %}Administration des images pour la galerie{% endblock %}
 
 {% block body %}
-    <h1>Images index</h1>
-
+    <div class="alert alert-heading alert-info text-center container">
+        <h1>Administration des images pour la galerie</h1>
+        <p>C'est ici que tu upload tes photos qui se retrouveront sur la galerie</p>
+    </div>
+    <div class="container-fluid">
     <table class="table">
         <thead>
             <tr>
-                <th>Nom de l'évènement</th>
-                <th>Image</th>
-                <th>Commentaires</th>
-                <th>Que faire</th>
+                <th class="bg-primary text-center">Nom de l'évènement</th>
+                <th class="bg-primary text-center">Image</th>
+                <th class="bg-primary text-center">Commentaires</th>
+                <th class="bg-primary text-center">Que faire</th>
             </tr>
         </thead>
         <tbody>
         {% for image in images %}
             <tr>
-                <td>{{ image.nomEvenement | upper}}</td>
-                <td><img {% if image.urlImage == "" %}src="/uploads/image_gallery/{{ image.imageFilename }}" {% else %} src="{{ image.urlImage }}" {% endif %} alt="{{ image.nomEvenement }}" style="width: 175px; height: 100px"></td>
+                <td class="text-center">{{ image.nomEvenement | upper}}</td>
+                <td class="text-center"><img {% if image.urlImage == "" %}src="/uploads/image_gallery/{{ image.imageFilename }}" {% else %} src="{{ image.urlImage }}" {% endif %} alt="{{ image.nomEvenement }}" style="width: 175px; height: 100px"></td>
             {% if image.commentaires == "" %}
-                <td>Rien à signaler</td>
+                <td class="text-center">Rien à signaler</td>
             {% else %}
-                <td>{{ image.commentaires | capitalize }}</td>
+                <td class="text-center">{{ image.commentaires | capitalize }}</td>
             {% endif %}
 
-                <td>
-                    <a href="{{ path('images_show', {'id': image.id}) }}"><button class="btn btn-primary mb-1">Voir</button></a><br>
-                    <a href="{{ path('images_edit', {'id': image.id}) }}"><button class="btn btn-warning mb-1">Editer</button></a>
+                <td class="text-center">
+                    <a href="{{ path('images_edit', {'id': image.id}) }}"><button class="btn btn-warning mb-1">Editer</button></a><br>
                     {{ include('images/_delete_form.html.twig') }}
                 </td>
             </tr>
@@ -39,5 +41,8 @@
         </tbody>
     </table>
 
-    <a href="{{ path('images_new') }}">Create new</a>
+    <a class="btn btn-secondary mb-2" href="{{ path('images_new') }}">Create new</a><br>
+    <a href="{{ path('homepage') }}">Retour à l'accueil</a>
+
+    </div>
 {% endblock %}

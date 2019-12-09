@@ -3,10 +3,11 @@
 {% block title %}Photographe{% endblock %}
 
 {% block body %}
-    <div class="container-fluid">
+
+
 
         {{ include("include/header.html.twig") }}
-
+    <div class="container-fluid">
         <div class="hero-section">
             <div class="row">
                 <div class="col-12">
@@ -22,21 +23,87 @@
                                 <img onmouseover="anime3()"  onmouseout="anime3rev()" id="anime3" class="d-block w-100" src="/images_mariages/Engagement Marlene & Xavier/IMG_8352-2.jpg" alt="Third slide">
                             </div>
                         </div>
-                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" ></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" ></span>
-                            <span class="sr-only">Next</span>
-                        </a>
                     </div>
                 </div><!-- .swiper-container -->
             </div><!-- .col-md-10 -->
         </div><!-- .row -->
-    </div><!-- .hero-section -->
+    </div>
+
+<div class="container-fluid" style="margin-top: 50px">
+
+    <h2 class="text-center portfolio-title" style="font-family: 'Playfair Display', sans-serif;margin-top: 50px"> portfolio </h2>
+    <hr style="width: 60px; ">
+
+
+    <div style="width: 2000px; margin-top: 100px" onmouseover="scroll_anime()">
+        <div id="gallery_left"  class="gallery_left">
+            <div class="blue">
+                <a class="choix_gallery" href="{{ path("homepage") }}"><img  src="/images_mariages/Engagement Marlene & Xavier/IMG_8352-2.jpg" style="width: 700px; height: 600px" alt=""></a>
+            </div>
+            <div class="gallery_text_left">
+                <p class="display-4">“Recréer un moment magique”</p>
+                <p>
+                    Nous pouvons préparer votre « first look », choisir un endroit calme, que ce soit un moment entre vous,
+                    dans votre bulle à l’abri des regards de vos invités.
+
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <div style="width: 2000px" onmouseover="scroll_anime_right()">
+        <div id="gallery_right"  class="gallery_right">
+{#            <div class="gallery_text_right">#}
+{#                <p>Un petit test pour voir Lorem ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem corporis culpa, deleniti error, eum ex harum impedit iste itaque iusto labore, omnis optio sed soluta tenetur! Enim fugit praesentium reprehenderit.lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, cum deleniti distinctio dolore eaque eius ex iure laborum nemo quae quas quis quos repellat reprehenderit suscipit tempore voluptate voluptatem! Aliquam! dolor sit amet, consectetur adipisicing elit. Aliquid amet assumenda beatae cum deleniti deserunt doloremque exercitationem hic incidunt ipsum iusto laborum nemo odio officiis, optio quam quis sequi tempora.</p>#}
+{#            </div>#}
+            <div class="green">
+                <a class="choix_gallery" href="{{ path("homepage") }}"><img  src="/images_mariages/Engagement Marlene & Xavier/IMG_8352-2.jpg" style="border-radius: 50%; width: 700px; height: 600px" alt=""></a>
+            </div>
+        </div>
+    </div>
+
+    <div style="width: 2000px" onmouseover="scroll_anime2()">
+        <div id="gallery_left2"  class="gallery_left2">
+            <div class="blue2">
+                <a class="choix_gallery2" href="{{ path("homepage") }}"><img  src="/images_mariages/Engagement Marlene & Xavier/IMG_8352-2.jpg" style="width: 700px; height: 600px" alt=""></a>
+            </div>
+            <div class="gallery_text_left2">
+                <p>Un petit test pour voir Lorem ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem corporis culpa, deleniti error, eum ex harum impedit iste itaque iusto labore, omnis optio sed soluta tenetur! Enim fugit praesentium reprehenderit.lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, cum deleniti distinctio dolore eaque eius ex iure laborum nemo quae quas quis quos repellat reprehenderit suscipit tempore voluptate voluptatem! Aliquam! dolor sit amet, consectetur adipisicing elit. Aliquid amet assumenda beatae cum deleniti deserunt doloremque exercitationem hic incidunt ipsum iusto laborum nemo odio officiis, optio quam quis sequi tempora.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <br><br><br><br><br>
 
     {{ include("include/footer.html.twig") }}
 
     </div><!-- .container-fluid -->
+
+    <script>
+        function scroll_anime(){
+            var gallery = document.getElementById("gallery_left");
+            if (!gallery.classList.contains("anime_left")) {
+                gallery.classList.toggle("anime_left");
+                gallery.classList.toggle("gallery_left");
+            }
+        }
+
+        function scroll_anime_right(){
+            var gallery = document.getElementById("gallery_right");
+            if (!gallery.classList.contains("anime_right")) {
+                gallery.classList.toggle("anime_right");
+                gallery.classList.toggle("gallery_right");
+            }
+        }
+
+        function scroll_anime2(){
+            var gallery = document.getElementById("gallery_left2");
+            if (!gallery.classList.contains("anime_left2")) {
+                gallery.classList.toggle("anime_left2");
+                gallery.classList.toggle("gallery_left2");
+            }
+        }
+    </script>
 {% endblock %}

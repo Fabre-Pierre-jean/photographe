@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+    <div class="container tangerine">
+
+            <h1 class="text-center title" >Peggy Bous</h1>
+            <h3 class="text-center">Moments heureux</h3>
+
+
+
+        <hr>
+        <header class="site-header">
+            <div class="row align-items-center">
+                <div class="col-4 col-sm-4 col-lg-2 order-lg-1">
+                    <div class="site-branding">
+                        <h1 class="site-title"><a href="{{ path('homepage') }}" rel="home"><img src="/images_mariages/apn_ancien/logo.jpg" alt="Logo" style="width: 75px; height: auto"></a></h1>
+                    </div><!-- .site-branding -->
+                </div><!-- .col-8 -->
+
+                <div class="col-8 col-sm-8 col-lg-10 order-3 order-md-3 order-lg-2">
+                    <nav class="site-navigation flex align-items-center justify-content-end">
+                        <div class="hamburger-menu d-lg-none order-2">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div><!-- .hamburger-menu -->
+                        <ul>
+                            <li  class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="{{ path('homepage') }}">Accueil</a></li>
+                            {% if app.user %}
+                                <li>
+                                    <a href="/logout">Se déconnecter</a>
+                                </li>
+                            {% else %}
+                                <li><a href="{{ path('app_login') }}">Se connecter</a></li>
+                            {% endif %}
+                        </ul>
+                    </nav><!-- .site-navigation -->
+                        </div>
+                </div><!-- .col-2 -->
+            </div><!-- .row -->
+    </header><!-- .site-header -->
+
+    <div class="container">
+        <form method="post">
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+
+            {% if app.user %}
+                <div class="mb-3 alert alert-success">
+                   Salut {{ app.user.username }}, et bienvenue sur ton site!!
+                </div>
+            {% endif %}
+            <div class="jumbotron" style="width: 400px; transform: translate(300px, 100px)">
+
+            <label for="inputEmail">Email</label>
+            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
+            <label for="inputPassword">Mot de passe</label>
+            <input type="password" name="password" id="inputPassword" class="form-control" required>
+
+            <input type="hidden" name="_csrf_token"
+                   value="{{ csrf_token('authenticate') }}"
+            >
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" name="_remember_me"> Remember me
+                    </label>
+                </div>
+
+
+            <button class="btn btn-lg btn-primary" type="submit">
+                Sign in
+            </button>
+            </div>
+        </form>
+
+    </div>
+{% endblock %}

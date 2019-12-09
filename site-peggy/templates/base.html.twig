@@ -23,6 +23,8 @@
         <!-- Styles -->
         <link rel="stylesheet" href="/css/style.css">
 
+        <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
+
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/core.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
@@ -35,10 +37,17 @@
     <script type='text/javascript' src='/js/masonry.pkgd.min.js'></script>
     <script type='text/javascript' src='/js/custom.js'></script>
     <script src="/js/anime.js"></script>
-    <div class="container">
+
+        <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                bsCustomFileInput.init()
+            })
+        </script>
+
         {% block body %}
 
         {% endblock %}
-</div>
+
         {% block javascripts %}{% endblock %}
 </html>
