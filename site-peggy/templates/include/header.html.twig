@@ -1,7 +1,7 @@
 <div class="container tangerine">
 
     <h1 class="text-center title" >Peggy Bous</h1>
-    <h3 class="text-center">Moments heureux</h3>
+    <h3 class="text-center happy-title">Moments heureux</h3>
 
     <hr>
     <header class="site-header">
@@ -30,7 +30,7 @@
                     <li  class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="{{ path('homepage') }}">Accueil</a></li>
 {#                    <li><a href="{{ path('portefolio') }}">Portfolio</a></li>#}
 
-                    <li class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="#">Contact</a></li>
+                    <li class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="{{ path("contact") }}">Contact</a></li>
                     <li class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="#">About me</a></li>
                     {% if app.user %}
                         <li>
@@ -44,4 +44,15 @@
         </div><!-- .col-2 -->
     </div><!-- .row -->
 </header><!-- .site-header -->
+
+    {% for label,messages in app.flashes  %}
+        <div class="container">
+            <div class="alert alert-{{ label }}">
+                {% for message in messages  %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+
 </div>

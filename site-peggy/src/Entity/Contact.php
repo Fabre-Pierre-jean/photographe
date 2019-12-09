@@ -19,6 +19,11 @@ class Contact
     /**
      * @ORM\Column(type="string", length=255)
      */
+    private $nom;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
     private $email;
 
     /**
@@ -34,6 +39,20 @@ class Contact
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * @param mixed $nom
+     */
+    public function setNom($nom): void
+    {
+        $this->nom = $nom;
     }
 
     public function getEmail(): ?string

@@ -94,7 +94,7 @@ ul li{
     font-size: 150px;
 }
 
-h3{
+.happy-title{
     font-size: 45px;
     color: pink;
     -webkit-transform: translate(110px, -80px);
