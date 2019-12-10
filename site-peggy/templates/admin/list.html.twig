@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration des images pour la galerie{% endblock %}
+
+{% block body %}
+<div class="alert alert-heading alert-info text-center container">
+    <h1>Administration des images pour la galerie</h1>
+    <p>C'est ici que tu upload tes photos qui se retrouveront sur la galerie</p>
+</div>
+<div class="container-fluid">
+    <table class="table">
+        <thead>
+        <tr>
+            <th class="bg-primary text-center">Email</th>
+            <th class="bg-primary text-center">actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for admin in admins %}
+            <tr>
+                <td class="text-center">{{ admin.email }}</td>
+                <td class="text-center">
+                    {#                    <a href="{{ path('images_edit', {'id': image.id}) }}"><button class="btn btn-warning mb-1">Editer</button></a><br>#}
+                    {{ include('admin/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-secondary mb-2" href="{{ path('admin_new') }}">Create new</a><br>
+    <a href="{{ path('admin_index') }}"><button class="btn btn-secondary">Retour à l'administration</button></a>
+
+</div>
+{% endblock %}

@@ -1,6 +1,6 @@
 <!-------------------------------------------------- Button trigger modal --------------------------------------------------------------------------->
     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-        Supprimer cette image
+        Supprimer ce compte
     </button>
 
 <!-------------------------------------------------- End Button trigger modal --------------------------------------------------------------------------->
@@ -10,11 +10,11 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content bg-bark">
             <div class="modal-body">
-                Etes vous sûr de vouloir supprimer cette image ?
+                Etes vous sûr de vouloir supprimer ce compte ?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>
-                <a href="{{ path('images_delete', {'id': image.id}) }}" class="btn btn-danger">Oui je suis sûr !</a>
+                <a href="{{ path('admin_delete', {'id': admin.id}) }}" class="btn btn-danger">Oui je suis sûr !</a>
             </div>
         </div>
     </div>

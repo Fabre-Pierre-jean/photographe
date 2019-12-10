@@ -14,17 +14,17 @@ use Symfony\Component\Routing\Annotation\Route;
 class AboutmeController extends AbstractController
 {
     /**
-     * @Route("/aboutme", name="aboutme_index", methods={"GET"})
+     * @Route("/aboutme", name="aboutme_visitor")
      */
     public function index(AboutmeRepository $aboutmeRepository): Response
     {
-        return $this->render('aboutme/index.html.twig', [
+        return $this->render('aboutme/render.html.twig', [
             'aboutmes' => $aboutmeRepository->findAll(),
         ]);
     }
 
     /**
-     * @Route("/aboutme/new", name="aboutme_new", methods={"GET","POST"})
+     * @Route("/admin/aboutme/new", name="aboutme_new")
      */
     public function new(Request $request): Response
     {
@@ -47,17 +47,17 @@ class AboutmeController extends AbstractController
     }
 
     /**
-     * @Route("/aboutme/{id}", name="aboutme_show", methods={"GET"})
+     * @Route("/admin/aboutme", name="aboutme_index")
      */
-    public function show(Aboutme $aboutme): Response
+    public function show(AboutmeRepository $aboutmeRepository): Response
     {
-        return $this->render('aboutme/show.html.twig', [
-            'aboutme' => $aboutme,
+        return $this->render('aboutme/index.html.twig', [
+            'aboutmes' => $aboutmeRepository->findAll(),
         ]);
     }
 
     /**
-     * @Route("/aboutme/{id}/edit", name="aboutme_edit", methods={"GET","POST"})
+     * @Route("/aboutme/show/{id}/edit", name="aboutme_edit")
      */
     public function edit(Request $request, Aboutme $aboutme): Response
     {

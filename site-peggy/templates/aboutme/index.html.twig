@@ -27,7 +27,6 @@
         <tbody>
         {% for aboutme in aboutmes %}
             <tr>
-                <td>{{ aboutme.id }}</td>
                 <td>{{ aboutme.title }}</td>
                 <td>{{ aboutme.desciption }}</td>
                 <td>
@@ -43,5 +42,6 @@
         </tbody>
     </table>
 
+    <p><i>A faire disparaitre le bouton Create new elle n'aura qu'a editer sa presentation une fois faites la premiere fois par moi</i></p>
     <a href="{{ path('aboutme_new') }}">Create new</a>
 {% endblock %}

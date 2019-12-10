@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ImagesController extends AbstractController
 {
     /**
-     * @Route("/admin", name="images_index", methods={"GET"})
+     * @Route("/admin/gallery", name="images_index")
      */
     public function index(ImagesRepository $imagesRepository): Response
     {
@@ -26,7 +26,7 @@ class ImagesController extends AbstractController
     }
 
     /**
-     * @Route("/admin/new", name="images_new", methods={"GET","POST"})
+     * @Route("/admin/gallery/new", name="images_new")
      */
     public function new(Request $request, EntityManagerInterface $manager)
     {
@@ -73,7 +73,7 @@ class ImagesController extends AbstractController
     }
 
     /**
-     * @Route("/admin/show/{id}", name="images_show", methods={"GET"})
+     * @Route("/admin/gallery/show/{id}", name="images_show")
      */
     public function show(Images $image): Response
     {
@@ -110,7 +110,7 @@ class ImagesController extends AbstractController
     /**
      * Supprimer une image
      *
-     * @Route("/admin/{id}/delete", name="images_delete")
+     * @Route("/admin/gallery/{id}/delete", name="images_delete")
      */
     public function deleteAction(Images $images, EntityManagerInterface $manager)
     {

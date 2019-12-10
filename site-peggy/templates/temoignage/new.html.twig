@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Votre témoignage{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <h1 class="text-center tangerine">Laissez une trace pour décrire la merveilleuse aventure que nous avons vécu</h1>
+
+    {{ include('temoignage/_form.html.twig') }}
+
+    <a href="{{ path('temoignage_index') }}"><button type="submit" class="btn btn-secondary">back to list</button></a>
+</div>
+
+{% endblock %}

@@ -32,14 +32,14 @@
                 <ul>
                     {% if app.user %}
                     <li>
-                        <a href="/admin">Administration</a>
+                        <a href="{{ path("admin_index") }}">Administration</a>
                     </li>
                     {% endif %}
                     <li  class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="{{ path('homepage') }}">Accueil</a></li>
 {#                    <li><a href="{{ path('portefolio') }}">Portfolio</a></li>#}
-
+                    <li class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="{{ path("temoignage_index") }}">Témoignages</a></li>
+                    <li class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="{{ path("aboutme_visitor")}}">About me</a></li>
                     <li class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="{{ path("contact") }}">Contact</a></li>
-                    <li class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="#">About me</a></li>
                     {% if app.user %}
                         <li>
                             <a href="/logout">Se déconnecter</a>
