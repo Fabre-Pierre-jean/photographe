@@ -82,30 +82,30 @@ class ImagesController extends AbstractController
         ]);
     }
 
-//    /**
-//     * @Route("/admin/{id}/edit", name="images_edit", methods={"GET","POST"})
-//     */
-//    public function edit(Request $request, Images $image): Response
-//    {
-//        $form = $this->createForm(ImagesType::class, $image);
-//        $form->handleRequest($request);
-//
-//        if ($form->isSubmitted() && $form->isValid()) {
-//            $this->getDoctrine()->getManager()->flush();
-//
-//            $this->addFlash(
-//                'success',
-//                "Votre image a bien été modifiée !"
-//            );
-//
-//            return $this->redirectToRoute('images_index');
-//        }
-//
-//        return $this->render('images/edit.html.twig', [
-//            'image' => $image,
-//            'form' => $form->createView(),
-//        ]);
-//    }
+    /**
+     * @Route("/admin/{id}/edit", name="images_edit", methods={"GET","POST"})
+     */
+    public function edit(Request $request, Images $image): Response
+    {
+        $form = $this->createForm(ImagesType::class, $image);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            $this->addFlash(
+                'success',
+                "Votre image a bien été modifiée !"
+            );
+
+            return $this->redirectToRoute('images_index');
+        }
+
+        return $this->render('images/edit.html.twig', [
+            'image' => $image,
+            'form' => $form->createView(),
+        ]);
+    }
 
     /**
      * Supprimer une image

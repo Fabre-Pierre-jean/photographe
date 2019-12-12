@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Aboutme{% endblock %}
+
+{% block body %}
+    <h1>Edit Aboutme</h1>
+
+    {{ include('admin/_changemail_form.html.twig', {'button_label': 'Update'}) }}
+
+
+    {{ include('admin/_delete_form.html.twig') }}
+    <a href="{{ path('admin_list') }}">Retour a la liste</a>
+{% endblock %}

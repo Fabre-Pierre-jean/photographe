@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration des images pour la galerie{% endblock %}
+
+{% block body %}
+<div class="alert alert-heading alert-info text-center container">
+    <h1>Administration des témoignage</h1>
+    <p>C'est ici que tu supprime/modifie les témoignages</p>
+</div>
+<div class="container-fluid">
+    <table class="table">
+        <thead>
+        <tr>
+            <th class="bg-primary text-center">Témoignage</th>
+            <th class="bg-primary text-center">Nom</th>
+            <th class="bg-primary">actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for temoignage in temoignages %}
+            <tr>
+                <td><u>Témoignage n°{{ temoignage.id }}: </u> {{ temoignage.message | raw}}</td>
+                <td class="text-center">{{ temoignage.nom }}</td>
+
+                <td class="text-center">
+                    <a href="{{ path('temoignage_edit', {'id': temoignage.id}) }}"><button class="btn btn-warning mb-1">Editer</button></a><br>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-secondary mb-2" href="{{ path('temoignage_new') }}">Nouveau témoignage</a><br>
+    <a href="{{ path('admin_index') }}"><button class="btn btn-secondary">Retour à l'administration</button></a>
+
+</div>
+{% endblock %}

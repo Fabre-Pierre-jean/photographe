@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Administration des images pour la galerie{% endblock %}
+{% block title %}Administration des comptes{% endblock %}
 
 {% block body %}
 <div class="alert alert-heading alert-info text-center container">
-    <h1>Administration des images pour la galerie</h1>
-    <p>C'est ici que tu upload tes photos qui se retrouveront sur la galerie</p>
+    {{ dump(app.user) }}
+    <h1>Administration des comptes administrateur</h1>
+    <p>C'est ici que tu geres le/les compte(s) administrateur qui peuvent supprimer/editer des éléments de ton site</p>
 </div>
 <div class="container-fluid">
     <table class="table">
@@ -20,8 +21,7 @@
             <tr>
                 <td class="text-center">{{ admin.email }}</td>
                 <td class="text-center">
-                    {#                    <a href="{{ path('images_edit', {'id': image.id}) }}"><button class="btn btn-warning mb-1">Editer</button></a><br>#}
-                    {{ include('admin/_delete_form.html.twig') }}
+{#                    <a href="{{ path('admin_edit', {'id': admin.id}) }}"><button class="btn btn-warning mb-1">Editer</button></a><br>#}
                 </td>
             </tr>
         {% else %}
@@ -32,8 +32,8 @@
         </tbody>
     </table>
 
-    <a class="btn btn-secondary mb-2" href="{{ path('admin_new') }}">Create new</a><br>
-    <a href="{{ path('admin_index') }}"><button class="btn btn-secondary">Retour à l'administration</button></a>
+    <a class="btn btn-secondary mb-2" href="{{ path('admin_new') }}">Nouveau compte</a><br>
+    <a href="{{ path('admin_index') }}"><button class="btn btn-outline-secondary">Retour à l'administration</button></a>
 
 </div>
 {% endblock %}

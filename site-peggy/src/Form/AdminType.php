@@ -4,6 +4,7 @@
 namespace App\Form;
 
 use App\Entity\Admin;
+use App\Entity\User;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -25,7 +26,7 @@ class AdminType extends ApplicationType
                     "Entrez votre email"
                 )
             )
-            ->add('passwordHash',
+            ->add('password',
                 PasswordType::class,
                 $this->getOption(
                     "Mot de passe",
@@ -44,7 +45,7 @@ class AdminType extends ApplicationType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Admin::class,
+            'data_class' => User::class,
         ]);
     }
 }

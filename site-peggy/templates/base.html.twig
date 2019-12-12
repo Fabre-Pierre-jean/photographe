@@ -45,10 +45,10 @@
                 bsCustomFileInput.init()
             })
         </script>
-
+        {{ include("include/header.html.twig") }}
         {% block body %}
 
         {% endblock %}
-
+        {{ include("include/footer.html.twig") }}
         {% block javascripts %}{% endblock %}
 </html>

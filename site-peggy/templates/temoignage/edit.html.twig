@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Aboutme{% endblock %}
+
+{% block body %}
+    <div class="container" style="margin-top: -30px">
+        <h1>Edite le témoignage de {{ temoignage.nom }}</h1>
+
+        {{ include('temoignage/_form_ckeditor.html.twig', {'button_label': 'Update'}) }}
+
+        {{ include('temoignage/_delete_form.html.twig') }}<br>
+
+        <a href="{{ path('temoignage_list') }}"><button class="btn btn-info mt-1"> back to list</button></a>
+    </div>
+{% endblock %}

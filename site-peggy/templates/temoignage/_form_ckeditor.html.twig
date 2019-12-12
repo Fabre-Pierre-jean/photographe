@@ -1,0 +1,8 @@
+{% block body %}
+
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_row(form.message)}}
+        <button class="btn btn-outline-success mb-1">{{ button_label|default('Envoyer') }}</button>
+        {{ form_end(form) }}
+{% endblock %}

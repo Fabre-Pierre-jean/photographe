@@ -26,6 +26,11 @@ class Aboutme
      */
     private $desciption;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $image;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -51,6 +56,18 @@ class Aboutme
     public function setDesciption(string $desciption): self
     {
         $this->desciption = $desciption;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }

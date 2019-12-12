@@ -3,7 +3,7 @@
         <div class="header-social">
             <ul>
                 <li><a href="https://www.facebook.com/PeggyBous-Moments-heureux-308109400000912/"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="https://www.instagram.com/peggybous/"><i class="fa fa-instagram"></i></a></li>
             </ul>
         </div><!-- .footer-social -->
     </div><!-- .col-xl-4 -->
@@ -40,9 +40,10 @@
                     <li class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="{{ path("temoignage_index") }}">Témoignages</a></li>
                     <li class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="{{ path("aboutme_visitor")}}">About me</a></li>
                     <li class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="{{ path("contact") }}">Contact</a></li>
+
                     {% if app.user %}
                         <li>
-                            <a href="/logout">Se déconnecter</a>
+                            <a href="{{ path('app_logout') }}">Se déconnecter</a>
                         </li>
                     {% else %}
                         <li><a href="{{ path('app_login') }}">Se connecter</a></li>

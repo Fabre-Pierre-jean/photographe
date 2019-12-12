@@ -29,8 +29,7 @@
             {% endif %}
 
                 <td class="text-center">
-{#                    <a href="{{ path('images_edit', {'id': image.id}) }}"><button class="btn btn-warning mb-1">Editer</button></a><br>#}
-                    {{ include('images/_delete_form.html.twig') }}
+                    <a href="{{ path('images_edit', {'id': image.id}) }}"><button class="btn btn-warning mb-1">Editer</button></a><br>
                 </td>
             </tr>
         {% else %}

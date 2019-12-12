@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Images{% endblock %}
+
+{% block body %}
+    <h1>Images</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Nom</th>
+                <td>{{ temoignage.nom }}</td>
+            </tr>
+            <tr>
+                <th>Témoignage</th>
+                <td>{{ temoignage.message }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('temoignage_list') }}" style="outline: none;text-decoration: none"><button type="submit" class="btn btn-info mb-1">Retour à l'index</button></a><br>
+
+    <a href="{{ path('temoignage_edit', {'id': temoignage.id}) }}"><button class="btn btn-warning mb-1">Editer</button></a>
+
+    {{ include('temoignage/_delete_form.html.twig') }}
+{% endblock %}

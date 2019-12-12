@@ -33,6 +33,17 @@ class TemoignageController extends AbstractController
         ]);
     }
 
+
+    /**
+     * @Route("/admin/temoignage/list", name="temoignage_list")
+     */
+    public function list(TemoignageRepository $temoignageRepository): Response
+    {
+        return $this->render('temoignage/list.html.twig', [
+            'temoignages' => $temoignageRepository->findAll(),
+        ]);
+    }
+
     /**
      * @Route("/temoignage/new", name="temoignage_new")
      */
@@ -58,11 +69,64 @@ class TemoignageController extends AbstractController
             $manager->persist($temoignage);
             $manager->flush();
 
-            return $this->redirect($this->generateUrl('temoignage_index')); // a changer pour index admin
+            $this->addFlash(
+                'success',
+                "Le témoignage a bien été créer !"
+            );
+
+            return $this->redirect($this->generateUrl('temoignage_index'));
         }
 
         return $this->render('temoignage/new.html.twig', [
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/admin/temoignage/{id}/show", name="temoignage_show")
+     */
+    public function show(Temoignage $temoignage): Response
+    {
+        return $this->render('temoignage/show.html.twig', [
+            'temoignage' => $temoignage,
+        ]);
+    }
+
+    /**
+     * @Route("/admin/temoignage/{id}/edit", name="temoignage_edit")
+     */
+    public function edit(Request $request, Temoignage $temoignage): Response
+    {
+        $form = $this->createForm(TemoignageType::class, $temoignage);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            $this->addFlash(
+                'success',
+                "Le témoignage a bien été modifiée !"
+            );
+
+            return $this->redirectToRoute('temoignage_list');
+        }
+
+        return $this->render('temoignage/edit.html.twig', [
+            'temoignage' => $temoignage,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * Supprimer un témoignage
+     *
+     * @Route("/admin/temoignage/{id}/delete", name="temoignage_delete")
+     */
+    public function deleteAction(Temoignage $temoignage, EntityManagerInterface $manager)
+    {
+        $manager->remove($temoignage);
+        $manager->flush();
+
+        return $this->redirectToRoute('temoignage_list');
     }
 }

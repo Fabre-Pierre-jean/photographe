@@ -3,7 +3,19 @@
 {% block title %}Hello TemoignageController!{% endblock %}
 
 {% block body %}
-<div class="container">
-    coder la liste des témoignages
+<div class="pink">
+    <div class="container ">
+
+        <h1 class="alert text-center" style="font-family: Lato, Tangerine, sans-serif; color:purple">Envie de partager votre merveilleuse expérience avec Peggy ? N'hésitez pas à laisser votre témoignage!!</h1>
+        <p class="display-5 text-center text-uppercase alert alert-link font-italic" ><a style="outline: none; text-decoration: none;color: rgba(255,0,255,0.26);" href="{{ path("temoignage_new") }}">Laisser un témoignage</a></p>
+        {% for temoignage in temoignages %}
+<div class="temoignages text-center">
+            <p style="font-style: italic">
+                <i class="fa fa-quote-left"></i> {{ temoignage.message | raw  }} &nbsp;<i class="fa fa-quote-right"></i>
+            </p>
+            <p style="float: right; font-style: italic; margin-right: 200px;">{{ temoignage.nom | capitalize }}</p>
 </div>
+    {% endfor %}
+</div>
+
 {% endblock %}

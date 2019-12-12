@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Temoignage;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -21,11 +22,13 @@ class TemoignageType extends ApplicationType
                 )
             )
             ->add('message',
-                TextareaType::class,
-                $this->getOption(
-                    "Votre témoignage",
-                    "Entrez votre témoignage..."
-                )
+                CKEditorType::class,[
+                    'label' => 'Votre témoignage',
+                    'config' => [
+                        'toolbar'   => 'full',
+                        'required'  => true
+                    ]
+                ]
             )
         ;
     }

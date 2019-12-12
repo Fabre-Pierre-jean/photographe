@@ -18,7 +18,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Title</th>
                 <th>Desciption</th>
                 <th>actions</th>
@@ -28,10 +27,9 @@
         {% for aboutme in aboutmes %}
             <tr>
                 <td>{{ aboutme.title }}</td>
-                <td>{{ aboutme.desciption }}</td>
+                <td>{{ aboutme.desciption | raw }}</td>
                 <td>
-                    <a href="{{ path('images_edit', {'id': image.id}) }}"><button class="btn btn-warning mb-1">Editer</button></a><br>
-                    {{ include('images/_delete_form.html.twig') }}
+                    <a href="{{ path('aboutme_edit', {'id': aboutme.id}) }}"><button class="btn btn-warning mb-1">Editer</button></a><br>
                 </td>
             </tr>
         {% else %}
@@ -42,6 +40,4 @@
         </tbody>
     </table>
 
-    <p><i>A faire disparaitre le bouton Create new elle n'aura qu'a editer sa presentation une fois faites la premiere fois par moi</i></p>
-    <a href="{{ path('aboutme_new') }}">Create new</a>
 {% endblock %}
