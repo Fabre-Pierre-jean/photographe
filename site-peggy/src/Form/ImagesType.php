@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Images;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -14,8 +15,14 @@ class ImagesType extends ApplicationType
     {
         $builder
             ->add('nomEvenement')
-            ->add('urlImage')
-            ->add('image', FileType::class, [
+            ->add('urlImage', UrlType::class, [
+                'label'     => 'Url de l\'image',
+                'attr'      => [
+                    'placeholder' =>"Addresse de l'image au format http://hebergeur.com/IMG12.jpg"
+                ]
+            ])
+            ->add('image',
+                FileType::class, [
                 'label' => 'Upload tes images',
 
                 // unmapped means that this field is not associated to any entity property

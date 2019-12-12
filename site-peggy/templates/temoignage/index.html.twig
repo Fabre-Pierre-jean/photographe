@@ -6,14 +6,23 @@
 <div class="pink">
     <div class="container ">
 
-        <h1 class="alert text-center" style="font-family: Lato, Tangerine, sans-serif; color:purple">Envie de partager votre merveilleuse expérience avec Peggy ? N'hésitez pas à laisser votre témoignage!!</h1>
+        <h1 class="alert text-center" style="font-family: Lato, Tangerine, sans-serif; color:purple">Témoignages De Mariage - Vos avis sont ma motivation</h1>
         <p class="display-5 text-center text-uppercase alert alert-link font-italic" ><a style="outline: none; text-decoration: none;color: rgba(255,0,255,0.26);" href="{{ path("temoignage_new") }}">Laisser un témoignage</a></p>
+        <span style="font-size:20px;">Vous retrouvez ci-dessous quelque uns de mes&nbsp;<strong>témoignages de mariage</strong>
+            que mes gentilles mariées et gentils mariés ont bien voulu me laisser. Ces témoignages sont extrêmement
+            importants car ils me permettent de m'améliorer sans cesse dans un seul et unique but : Etre le meilleur
+            <strong>photographe </strong>possible le jour de votre mariage.&nbsp;</span>
+
         {% for temoignage in temoignages %}
-<div class="temoignages text-center">
-            <p style="font-style: italic">
-                <i class="fa fa-quote-left"></i> {{ temoignage.message | raw  }} &nbsp;<i class="fa fa-quote-right"></i>
-            </p>
-            <p style="float: right; font-style: italic; margin-right: 200px;">{{ temoignage.nom | capitalize }}</p>
+<div class="tangerine" style="width: 600px; margin-left: 22.5%">
+
+
+        <p style="margin-bottom: 100px">
+                 {{ temoignage.message | raw  }}
+        </p>
+        <p style="float: right; margin-right: 50px;">
+            <i><b>{{ temoignage.nom | capitalize }}</b></i>
+        </p>
 </div>
     {% endfor %}
 </div>

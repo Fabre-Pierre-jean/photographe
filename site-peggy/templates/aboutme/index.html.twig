@@ -3,6 +3,7 @@
 {% block title %}A propos de moi{% endblock %}
 
 {% block body %}
+    <div class="container">
     <h1>Aboutme index</h1>
 
 {#    {% for label,messages in app.flashes  %}#}
@@ -18,14 +19,16 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Title</th>
-                <th>Desciption</th>
+                <th>Aperçu image</th>
+                <th>Titre</th>
+                <th>Présentation</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for aboutme in aboutmes %}
             <tr>
+                <td><img style="width: 175px; height: 100px" src="/uploads/aboutme/{{ aboutme.imageFilename }}" alt=""></td>
                 <td>{{ aboutme.title }}</td>
                 <td>{{ aboutme.desciption | raw }}</td>
                 <td>
@@ -39,5 +42,5 @@
         {% endfor %}
         </tbody>
     </table>
-
+    </div>
 {% endblock %}

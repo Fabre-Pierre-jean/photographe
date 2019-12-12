@@ -3,11 +3,11 @@
 {% block title %}Edit Aboutme{% endblock %}
 
 {% block body %}
-    <h1>Edit Aboutme</h1>
+    <div class="container">
+        <h1>Edit Aboutme</h1>
 
-    {{ include('aboutme/_form.html.twig', {'button_label': 'Update'}) }}
+        {{ include('aboutme/_form_ckeditor.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('aboutme_index') }}">back to list</a>
-
-    {{ include('aboutme/_delete_form.html.twig') }}
+        <a href="{{ path('aboutme_index') }}">back to list</a>
+    </div>
 {% endblock %}

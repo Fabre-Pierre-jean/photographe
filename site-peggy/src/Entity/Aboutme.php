@@ -31,6 +31,27 @@ class Aboutme
      */
     private $image;
 
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $imageFilename;
+
+    /**
+     * @return mixed
+     */
+    public function getImageFilename()
+    {
+        return $this->imageFilename;
+    }
+
+    /**
+     * @param mixed $imageFilename
+     */
+    public function setImageFilename($imageFilename): void
+    {
+        $this->imageFilename = $imageFilename;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
