@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="/css/masonry.css">
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="gallery" id="gallery">
+            {%  for image in images %}
+                <div class="gallery-item">
+                    <div class="content"><img src="/uploads/image_gallery/{{ image.imageFileName }}" alt=""></div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="/js/masonry.js"></script>
+{% endblock %}

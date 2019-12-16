@@ -17,6 +17,7 @@ class ImagesType extends ApplicationType
             ->add('nomEvenement')
             ->add('urlImage', UrlType::class, [
                 'label'     => 'Url de l\'image',
+                'required' => false,
                 'attr'      => [
                     'placeholder' =>"Addresse de l'image au format http://hebergeur.com/IMG12.jpg"
                 ]

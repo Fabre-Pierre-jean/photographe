@@ -7,46 +7,79 @@
             </ul>
         </div><!-- .footer-social -->
     </div><!-- .col-xl-4 -->
-
-    <h1 class="text-center title" >Peggy.Bous</h1>
-    <h3 class="text-center happy-title">Moments heureux</h3>
-
+    <a href="{{ path('homepage') }}" rel="home" style="outline: none; text-decoration: none; color: black">
+        <h1 class="text-center title" >Peggy.Bous</h1>
+        <h3 class="text-center happy-title">Moments heureux</h3>
+    </a>
     <hr>
     <header class="site-header">
     <div class="row align-items-center">
         <div class="col-4 col-sm-4 col-lg-2 order-lg-1">
             <div>
-                <h1 class="site-title"><a href="{{ path('homepage') }}" rel="home"><img class="logo" src="/images_mariages/apn_ancien/logo.jpg" alt="Logo"></a></h1>
+                <h1 class="site-title"><a href="{{ path('homepage') }}" rel="home"><img class="logo" src="/images_mariages/apn_ancien/logo2.png" alt="Logo"></a></h1>
             </div>
         </div><!-- .col-8 -->
-
-        <div class="col-8 col-sm-8 col-lg-10 order-3 order-md-3 order-lg-2">
-            <nav class="site-navigation flex align-items-center justify-content-end navbar-collapse">
+        {% if app.user %}
+        <div class="col-8 col-sm-8 col-lg-10 order-3 order-md-3 order-lg-2" style="font-size: 27px">
+            <nav class="site-navigation flex navbar-collapse" id="navAbsolute">
                 <div class="hamburger-menu d-lg-none order-2">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                     <span>
+                        <li  class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="{{ path('homepage') }}">Accueil</a></li>
+                    </span>
+                    <span>
+                        <li class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="{{ path("temoignage_index") }}">Témoignages</a></li>
+                    </span>
+{#                                <span>#}
+{#                                    <li class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="{{ path("aboutme_visitor")}}">About me</a></li>#}
+{#                                </span>#}
+                    <span>
+                        <li  class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="{{ path('tarif_render') }}">Tarifs</a></li>
+                    </span>
                 </div><!-- .hamburger-menu -->
 
                 <ul>
-                    {% if app.user %}
+
                     <li>
                         <a href="{{ path("admin_index") }}">Administration</a>
                     </li>
-                    {% endif %}
                     <li  class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="{{ path('homepage') }}">Accueil</a></li>
-{#                    <li><a href="{{ path('portefolio') }}">Portfolio</a></li>#}
+                    <li  class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="{{ path('images_render') }}">Portfolio</a></li>
                     <li class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="{{ path("temoignage_index") }}">Témoignages</a></li>
-                    <li class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="{{ path("aboutme_visitor")}}">About me</a></li>
+{#                    <li class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="{{ path("aboutme_visitor")}}">About me</a></li>#}
+                    <li  class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="{{ path('tarif_render') }}">Tarifs</a></li>
                     <li class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="{{ path("contact") }}">Contact</a></li>
 
-                    {% if app.user %}
+
                         <li>
                             <a href="{{ path('app_logout') }}">Se déconnecter</a>
                         </li>
                     {% else %}
-                        <li><a href="{{ path('app_login') }}">Se connecter</a></li>
+                    <div class="col-8 col-sm-8 col-lg-10 order-3 order-md-3 order-lg-2" style="font-size: 33px">
+                        <nav class="site-navigation flex navbar-collapse" id="navAbsolute">
+                            <div class="d-lg-none order-2">
+                                <span>
+                                    <li  class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="{{ path('homepage') }}">Accueil</a></li>
+                                </span>
+                                <span>
+                                    <li class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="{{ path("temoignage_index") }}">Témoignages</a></li>
+                                </span>
+{#                                <span>#}
+{#                                    <li class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="{{ path("aboutme_visitor")}}">About me</a></li>#}
+{#                                </span>#}
+                                <span>
+                                    <li  class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="{{ path('tarif_render') }}">Tarifs</a></li>
+                                </span>
+                            </div><!-- .hamburger-menu -->
+
+                                <ul >
+                                    <li  class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="{{ path('homepage') }}">Accueil</a></li>
+                                    <li  class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="{{ path('images_render') }}">Portfolio</a></li>
+                                    <li class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="{{ path("temoignage_index") }}">Témoignages</a></li>
+{#                                    <li class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="{{ path("aboutme_visitor")}}">About me</a></li>#}
+                                    <li  class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="{{ path('tarif_render') }}">Tarifs</a></li>
+                                    <li class="{% if  property is defined and property=="active_home" %}current-menu-item {% endif %}"><a href="{{ path("contact") }}">Contact</a></li>
+
+                                    <li><a href="{{ path('app_login') }}">Se connecter</a></li>
                     {% endif %}
                 </ul>
             </nav><!-- .site-navigation -->

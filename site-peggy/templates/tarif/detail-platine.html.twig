@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tarif index{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <div class="content">
+                    <h4 style="text-align: justify;">
+                        <span style="color: rgba(128, 0, 128, 0.40);font-family: Lato, sans-serif">
+                            <span style="font-size:16px;">
+                                <h2 class="title-tarif-bronze"><strong>Tarif photographe Mariage Narbonne&nbsp;</strong></h2>
+                            </span>
+                        </span>
+                    </h4>
+                    <p style="text-align: justify;">&nbsp;</p><p style="text-align: justify;">
+                        {% for forfait in forfaits %}
+                        {% if forfait.nomFormule | lower == "platine" %}
+                        <span style="font-size:14px;"><em>Voici ce qui est compris dans les prestations de votre photographe pour le forfait {{ forfait.nomFormule }}:&nbsp;</em></span></p>
+                    <em>
+                        <div class="tarif-ul">
+                            {{ forfait.descriptif | raw }}
+                        </div>
+                    </em>
+
+                </div>
+            </div>
+            <div class="col-4">
+                <img src="/illustrations/platine.jpg" style="width: 300px; height: auto; margin-top: 30px">
+            </div>
+            {% for forfait in forfaits %}
+                {% if forfait.nomFormule | lower == "platine" %}
+            <span style="font-size: 14px;">{{ forfait.extra | raw}}</span><br>
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endfor %}
+        {{ include("tarif/_detail.html.twig")}}
+
+    </div>
+{% endblock %}

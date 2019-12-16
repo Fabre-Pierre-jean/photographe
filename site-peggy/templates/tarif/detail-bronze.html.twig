@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tarif index{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <div class="content"><h4 style="text-align: justify;">
+                                        <span style="color: rgba(128, 0, 128, 0.40);font-family: Lato, sans-serif"><span style="font-size:16px;"><h2 class="title-tarif-bronze"><strong>Tarif photographe Mariage Narbonne&nbsp;</strong></h2>
+                                                </span></span></h4><p style="text-align: justify;">&nbsp;</p><p style="text-align: justify;">
+                    {% for forfait in forfaits %}
+                        {% if forfait.nomFormule | lower == "bronze" %}
+                            <span style="font-size:18px;">
+                                <em>
+                                    Voici ce qui est compris dans les prestations de votre photographe mariage narbonne pour le forfait {{ forfait.nomFormule }}:&nbsp;
+                                </em>
+                            </span>
+                            <em>
+                                <div class="tarif-ul" style="font-size:18px;">
+                                    {{ forfait.descriptif | raw }}
+                                </div>
+                            </em>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+                <div class="col-4">
+                    <img src="/illustrations/bronze.jpg" style="width: 300px; height: auto">
+                </div>
+
+        </div>
+    {{ include("tarif/_detail.html.twig" )}}
+    </div>
+{% endblock %}

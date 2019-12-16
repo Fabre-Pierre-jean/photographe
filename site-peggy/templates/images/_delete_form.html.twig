@@ -1,5 +1,5 @@
 <!-------------------------------------------------- Button trigger modal --------------------------------------------------------------------------->
-    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
         Supprimer cette image
     </button>
 
@@ -13,8 +13,8 @@
                 Etes vous sûr de vouloir supprimer cette image ?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>
-                <a href="{{ path('images_delete', {'id': image.id}) }}" class="btn btn-danger">Oui je suis sûr !</a>
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Non</button>
+                <a href="{{ path('images_delete', {'id': image.id}) }}" class="btn btn-outline-danger">Oui je suis sûr !</a>
             </div>
         </div>
     </div>

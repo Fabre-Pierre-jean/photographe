@@ -3,28 +3,39 @@
 {% block title %}Hello TemoignageController!{% endblock %}
 
 {% block body %}
-<div class="pink">
-    <div class="container ">
+<div class="container ">
 
         <h1 class="alert text-center" style="font-family: Lato, Tangerine, sans-serif; color:purple">Témoignages De Mariage - Vos avis sont ma motivation</h1>
-        <p class="display-5 text-center text-uppercase alert alert-link font-italic" ><a style="outline: none; text-decoration: none;color: rgba(255,0,255,0.26);" href="{{ path("temoignage_new") }}">Laisser un témoignage</a></p>
+    <div class="text-center mb-5">
+        <br><a href="{{path('temoignage_new')}}" target="_blank"><button class="btn btn-pink">Laisser votre témoignage</button>  </a>
+    </div>
+        <p class="display-5 text-center text-uppercase alert alert-link" ></p>
         <span style="font-size:20px;">Vous retrouvez ci-dessous quelque uns de mes&nbsp;<strong>témoignages de mariage</strong>
             que mes gentilles mariées et gentils mariés ont bien voulu me laisser. Ces témoignages sont extrêmement
             importants car ils me permettent de m'améliorer sans cesse dans un seul et unique but : Etre le meilleur
             <strong>photographe </strong>possible le jour de votre mariage.&nbsp;</span>
 
-        {% for temoignage in temoignages %}
-<div class="tangerine" style="width: 600px; margin-left: 22.5%">
-
-
-        <p style="margin-bottom: 100px">
-                 {{ temoignage.message | raw  }}
-        </p>
-        <p style="float: right; margin-right: 50px;">
-            <i><b>{{ temoignage.nom | capitalize }}</b></i>
-        </p>
-</div>
-    {% endfor %}
+    <div class="row">
+        <div class="col-2 mt-5 col-sm-2 col-md-2 col-lg-2">
+            <img src="{{asset('images_mariages/mariage Aurélie et Jo apres la mairie à montplaisir/IMG_9920-1.jpg')}}" class="mt-2" style="height: 225px; width: auto">
+            <img src="{{asset('images_mariages/laurie_et_nicolas/01.jpg')}}" class="mt-2" style="height: 225px; width: auto">
+            <img src="{{asset('images_mariages/belle_photo3.jpg')}}" class="mt-2" style="height: 225px; width: auto">
+            <img src="{{asset('images_mariages/mariage Aurélie et Jo apres la mairie à montplaisir/IMG_9876-2.jpg')}}" class="mt-2" style="height: 225px; width: auto">
+            <img src="{{asset('images_mariages/belle_photo2.jpg')}}" class="mt-2" style="height: 225px; width: auto">
+            <img src="{{asset('images_mariages/mariage de Marlene et Xavier , preparatifs de la mariée/IMG_8820-4.jpg')}}" class="mt-2" style="height: 225px; width: auto">
+        </div>
+        <div class="col-10 col-sm-10 col-md-10 col-lg-10">
+            {% for temoignage in temoignages %}
+                <div class="tangerine quote_temoignage text-center">
+                        <p class="">
+                                 {{ temoignage.message | raw  }}
+                        </p>
+                        <p class="temoignage_name">
+                            <i>{{ temoignage.nom | capitalize }}</i>
+                        </p>
+                </div>
+            {% endfor %}
+        </div>
 </div>
 
 {% endblock %}

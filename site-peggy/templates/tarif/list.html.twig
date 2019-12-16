@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tarif index{% endblock %}
+
+{% block body %}
+    <div class="container">
+    <h1>Tarif index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom de la formule</th>
+                <th>Prix</th>
+                <th>Descriptif</th>
+                <th>Extra</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tarif in tarifs %}
+            <tr>
+                <td>{{ tarif.nomFormule }}</td>
+                <td>{{ tarif.prix }}</td>
+                <td>{{ tarif.descriptif | raw }}</td>
+                <td>{{ tarif.extra }}</td>
+                <td>
+                    <a href="{{ path('tarif_show', {'id': tarif.id}) }}">show</a>
+                    <a href="{{ path('tarif_edit', {'id': tarif.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    <a href="{{ path('tarif_new') }}"><button class="btn btn-outline-info">Creer une nouvelle formule</button> </a>
+    </div>
+{% endblock %}

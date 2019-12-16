@@ -16,9 +16,19 @@ use Symfony\Component\Routing\Annotation\Route;
 class ImagesController extends AbstractController
 {
     /**
-     * @Route("/admin/gallery", name="images_index")
+     * @Route("/gallery", name="images_render")
      */
     public function index(ImagesRepository $imagesRepository): Response
+    {
+        return $this->render('images/render.html.twig', [
+            'images' => $imagesRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/gallery", name="images_index")
+     */
+    public function list(ImagesRepository $imagesRepository): Response
     {
         return $this->render('images/index.html.twig', [
             'images' => $imagesRepository->findAll(),
@@ -83,7 +93,7 @@ class ImagesController extends AbstractController
     }
 
     /**
-     * @Route("/admin/{id}/edit", name="images_edit", methods={"GET","POST"})
+     * @Route("/admin/gallery/{id}/edit", name="images_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Images $image): Response
     {
